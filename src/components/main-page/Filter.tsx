@@ -5,7 +5,7 @@ const Filter = () => {
     const selectStyles = "font-medium cursor-pointer block w-full py-2 pl-10 pr-3 border border-gray-300 bg-white rounded-xl shadow-sm focus:outline-none focus:ring-blue focus:border-blue sm:text-sm";
 
     return (
-        <div className="p-4 flex flex-wrap gap-4 justify-center">
+        <div className="pt-6 pb-4 px-4 flex flex-wrap gap-4 justify-center">
             {/* Category Select */}
             <div className="relative flex items-center">
                 <AcademicCapIcon className="h-5 w-5 text-black absolute left-3" aria-hidden="true" />
