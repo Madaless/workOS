@@ -1,6 +1,6 @@
 import React from 'react'
 import { BuildingOffice2Icon, MapPinIcon, CurrencyDollarIcon, BriefcaseIcon, GlobeAltIcon, DevicePhoneMobileIcon } from '@heroicons/react/24/outline';
-import { formatDistanceToNow, subDays, isAfter, parseISO } from 'date-fns';
+import { formatDistanceToNow, subDays, isAfter, parse } from 'date-fns';
 
 export enum PromotionType {
     Normal = "Normal",
@@ -23,9 +23,13 @@ export type JobOffer = {
 }
 
 const Offer: React.FC<JobOffer> = ({ image, remoteRecruitmentTag, title, company, location, employmentType, salary, date, employmentTypeTag, locationTypeTag, promotionType }) => {
+    console.log("xd")
     const formatDate = (date: string) => {
-        const jobDate = parseISO(date);
+        const jobDate = parse(date, 'dd.MM.yyyy', new Date());
         const now = new Date();
+        console.log(title)
+        console.log('jobDate:', jobDate);
+        console.log('now:', now);
 
         if (isAfter(jobDate, subDays(now, 1))) {
             return 'Today';
@@ -38,12 +42,12 @@ const Offer: React.FC<JobOffer> = ({ image, remoteRecruitmentTag, title, company
         }
     };
 
-    const bgColor = promotionType === PromotionType.Premium ? 'bg-orange-200' :
+    const bgColor = promotionType === PromotionType.Premium ? 'bg-orange-100' :
         promotionType === PromotionType.Highlighted ? 'bg-blue-100' :
             'bg-white';
-    const borderColor = promotionType === PromotionType.Premium ? 'border-orange-300' :
+    const borderColor = promotionType === PromotionType.Premium ? 'border-orange-200' :
         promotionType === PromotionType.Highlighted ? 'border-blue-100' :
-            'border-transparent';
+            'border-gray-200';
 
     const textColor = promotionType === PromotionType.Premium ? 'text-gray-800' :
         promotionType === PromotionType.Highlighted ? 'text-gray-800' :
@@ -59,13 +63,13 @@ const Offer: React.FC<JobOffer> = ({ image, remoteRecruitmentTag, title, company
     const tagBgColor = promotionType === PromotionType.Premium || promotionType === PromotionType.Highlighted ? 'bg-white' : 'bg-transparent';
 
     return (
-        <div className={`flex items-center justify-between p-6 rounded-lg shadow-md max-w-[1140px] mx-auto hover:shadow-lg mb-5 border cursor-pointer ${bgColor} ${borderColor}`}>
+        <div className={`flex items-center justify-between p-6 rounded-lg shadow-sm max-w-[1140px] mx-auto hover:shadow-md mb-5 border cursor-pointer ${bgColor} ${borderColor}`}>
             <div className="flex items-center">
                 <div className="w-20 h-20">
                     <img src={image} alt="Company Logo" className="w-full h-full object-cover rounded-full" />
                 </div>
-                <div className="ml-6">
-                    <div className='flex items-center'>
+                <div className="ml-7">
+                    <div className='flex items-center mb-2'>
                         <h2 className={`text-xl font-bold ${textColor}`}>{title}</h2>
                         {/* <div className="ml-2 bg-orangeCP rounded text-white text-xs font-bold px-2 py-1 ">
                             SUPEROFETA
