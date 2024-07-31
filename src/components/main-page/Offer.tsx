@@ -23,7 +23,6 @@ export type JobOffer = {
 }
 
 const Offer: React.FC<JobOffer> = ({ image, remoteRecruitmentTag, title, company, location, employmentType, salary, date, employmentTypeTag, locationTypeTag, promotionType }) => {
-    console.log("xd")
     const formatDate = (date: string) => {
         const jobDate = parse(date, 'dd.MM.yyyy', new Date());
         const now = new Date();

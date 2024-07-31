@@ -1,10 +1,10 @@
 import Link from 'next/link'
 import { PlusIcon } from '@heroicons/react/24/outline';
-const Nav = () => {
+const PortalNav = () => {
     return (
-        <header className='bg-transparent absolute w-full z-10 h-[70px]'>
+        <header className='bg-white w-full z-10 h-[65px]'>
             <div className='absolute flex flex-col items-center justify-center text-center top-0  mt-2 '>
-                <div className='bg-slate-100 bg-opacity-95 rounded-full'>
+                <div className='bg-white bg-opacity-95 rounded-full'>
                     <img src='untitled.svg' className=" w-64 py-2 px-4 object-cover"></img>
                 </div>
             </div>
@@ -31,4 +31,4 @@ const Nav = () => {
     )
 }
 
-export default Nav
+export default PortalNav
