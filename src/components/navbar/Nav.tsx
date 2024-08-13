@@ -22,7 +22,7 @@ const Nav = () => {
                 </Link>
 
                 <Link href={"/login"} passHref legacyBehavior>
-                    <button className='mx-2 my-4 py-2 px-4 bg-black text-white rounded-lg font-bold text-base'>Log in</button>
+                    <button className='mx-2 my-4 py-2 px-4 bg-blackCP text-white rounded-lg font-bold text-base'>Log in</button>
                 </Link>
                 <Link href={"/login"} passHref legacyBehavior>
 

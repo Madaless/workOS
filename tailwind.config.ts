@@ -9,10 +9,14 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'blueCP': '#0a65fc',
-        'blackCP': '#000000',
+        'blueCP': '#3b84fd',
+        'blackCP': '#2D2D2D',
         'pinkCP': '#ff49db',
         'orangeCP': '#fe4800',
+        'goldCP': '#c8aa6e',
+        'bluebCP': '#0D3B66',
+        'bluemCP': '#1a4b78',
+
       },
     },
 

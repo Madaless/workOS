@@ -1,20 +1,22 @@
 import React, { ReactNode } from 'react'
 import NavButtons from "./NavButtons"
+import ProgressBar from './ProgressBar'
 
 
-type StepProps = {
+export type StepProps = {
     children: ReactNode
-    back: string
-    next: string
-    home?: boolean
+    back: boolean
+    next: boolean
+    finish?: boolean
 }
 
 
-const Step = ({ children, back, next, home }: StepProps) => {
+const Step = ({ children, back, next, finish }: StepProps) => {
     return (
         <div className='flex flex-col justify-between min-w-[500px] min-h-[200px]'>
+            <ProgressBar />
             {children}
-            <NavButtons />
+            <NavButtons back={back} next={next} finish={finish} />
         </div>
     )
 }

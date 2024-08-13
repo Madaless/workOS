@@ -19,7 +19,7 @@ const Cards = () => {
                     </p>
 
                     <a
-                        className="mt-4 block rounded border border-indigo-600 bg-indigo-600 px-12 py-3 text-center text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500 sm:mt-6"
+                        className="mt-4 block rounded border border-blackCP bg-transparent px-12 py-3 text-center text-sm font-medium text-blackCP hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500 sm:mt-6"
                         href="#"
                     >
                         Get Started
@@ -139,7 +139,7 @@ const Cards = () => {
                     </p>
 
                     <a
-                        className="mt-4 block rounded border border-indigo-600 bg-indigo-600 px-12 py-3 text-center text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500 sm:mt-6"
+                        className="mt-4 block rounded border border-bluebCP bg-bluebCP px-12 py-3 text-center text-sm font-medium text-white hover:bg-transparent hover:text-bluebCP focus:outline-none focus:ring active:text-indigo-500 sm:mt-6"
                         href="#"
                     >
                         Get Started
@@ -259,7 +259,7 @@ const Cards = () => {
                     </p>
 
                     <a
-                        className="mt-4 block rounded border border-indigo-600 bg-indigo-600 px-12 py-3 text-center text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500 sm:mt-6"
+                        className="mt-4 block rounded border border-goldCP bg-goldCP px-12 py-3 text-center text-sm font-medium text-white hover:bg-transparent hover:text-goldCP focus:outline-none focus:ring active:text-indigo-500 sm:mt-6"
                         href="#"
                     >
                         Get Started
