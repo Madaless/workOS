@@ -1,16 +1,52 @@
 import React from 'react'
 
+type OfferType = "normal" | "premium" | "gold"
+
+export type Offer = {
+    id: number;
+    offerType: OfferType;
+    title: string;
+    description: string;
+    cost: number;
+    benefits: Map<string, boolean>
+};
+
 const Cards = () => {
+    const offers: Offer[] = [{
+        id: 1,
+        offerType: "normal",
+        title: "Podstawowa",
+        description: 'Ważne przez 30 dni, wyróżnione zieloną ramką.',
+        cost: 30.00,
+        benefits: new Map([["Amen", true]])
+    },
+    {
+        id: 2,
+        offerType: "normal",
+        title: "Premium",
+        description: 'Ważne przez 30 dni, wyróżnione zieloną ramką.',
+        cost: 60.00,
+        benefits: new Map([["Amen", true]])
+    },
+    {
+        id: 3,
+        offerType: "normal",
+        title: "Złota",
+        description: 'Ważne przez 30 dni, wyróżnione zieloną ramką.',
+        cost: 300.00,
+        benefits: new Map([["Amen", true]])
+    },
+    ]
     return (
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:items-stretch md:grid-cols-3 md:gap-8">
             <div className="divide-y divide-gray-200 rounded-2xl border border-gray-200 shadow-sm">
                 <div className="p-6 sm:px-8">
                     <h2 className="text-lg font-medium text-gray-900">
-                        Starter
+                        Podstawowe
                         <span className="sr-only">Plan</span>
                     </h2>
 
-                    <p className="mt-2 text-gray-700">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <p className="mt-2 text-gray-700">Ważne przez 30 dni, wyróżnione zieloną ramką</p>
 
                     <p className="mt-2 sm:mt-4">
                         <strong className="text-3xl font-bold text-gray-900 sm:text-4xl"> 20$ </strong>
@@ -18,12 +54,11 @@ const Cards = () => {
                         <span className="text-sm font-medium text-gray-700">/month</span>
                     </p>
 
-                    <a
-                        className="mt-4 block rounded border border-blackCP bg-transparent px-12 py-3 text-center text-sm font-medium text-blackCP hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500 sm:mt-6"
-                        href="#"
+                    <button
+                        className="mt-4 w-full block rounded border border-blackCP bg-transparent px-12 py-3 text-center text-sm font-medium text-blackCP hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500 sm:mt-6" onClick={() => console.log(1)}
                     >
-                        Get Started
-                    </a>
+                        Wybieram
+                    </button>
                 </div>
 
                 <div className="p-6 sm:px-8">
@@ -127,7 +162,7 @@ const Cards = () => {
                 <div className="p-6 sm:px-8">
                     <h2 className="text-lg font-medium text-gray-900">
                         Pro
-                        <span className="sr-only">Plan</span>
+                        <span className="sr-only">Premium</span>
                     </h2>
 
                     <p className="mt-2 text-gray-700">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
@@ -138,12 +173,12 @@ const Cards = () => {
                         <span className="text-sm font-medium text-gray-700">/month</span>
                     </p>
 
-                    <a
-                        className="mt-4 block rounded border border-bluebCP bg-bluebCP px-12 py-3 text-center text-sm font-medium text-white hover:bg-transparent hover:text-bluebCP focus:outline-none focus:ring active:text-indigo-500 sm:mt-6"
-                        href="#"
+                    <button
+                        className="mt-4 w-full block rounded border border-bluebCP bg-bluebCP px-12 py-3 text-center text-sm font-medium text-white hover:bg-transparent hover:text-bluebCP focus:outline-none focus:ring active:text-indigo-500 sm:mt-6"
+
                     >
-                        Get Started
-                    </a>
+                        Wybieram
+                    </button>
                 </div>
 
                 <div className="p-6 sm:px-8">
@@ -258,12 +293,12 @@ const Cards = () => {
                         <span className="text-sm font-medium text-gray-700">/month</span>
                     </p>
 
-                    <a
-                        className="mt-4 block rounded border border-goldCP bg-goldCP px-12 py-3 text-center text-sm font-medium text-white hover:bg-transparent hover:text-goldCP focus:outline-none focus:ring active:text-indigo-500 sm:mt-6"
-                        href="#"
+                    <button
+                        className="mt-4 w-full block rounded border border-goldCP bg-goldCP px-12 py-3 text-center text-sm font-medium text-white hover:bg-transparent hover:text-goldCP focus:outline-none focus:ring active:text-indigo-500 sm:mt-6"
+
                     >
-                        Get Started
-                    </a>
+                        Wybieram
+                    </button>
                 </div>
 
                 <div className="p-6 sm:px-8">

@@ -1,5 +1,6 @@
 import Cards from '@/components/add-offer/Cards'
-import Step, { StepProps } from '@/components/add-offer/Step'
+import { StepProps } from '@/components/add-offer/Step'
+import Steps from '@/components/add-offer/Steps'
 import React from 'react'
 
 
@@ -14,7 +15,7 @@ const page = () => {
         <main className="min-h-screen pt-10 max-w-[1180px] m-auto bg-white">
             <h1 className='font-bold text-4xl mx-4'>Dodaj ogłoszenie</h1>
             <section id="types_of_offers" className="max-w-screen-xl py-8 mx-4 sm:py-12  lg:py-16">
-                <Step {...firstStep} />
+                <Steps />
             </section>
         </main>
     )
