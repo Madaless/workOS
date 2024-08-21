@@ -49,7 +49,7 @@ const Login = () => {
                                     type="email"
                                     id="Email"
                                     name="email"
-                                    className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm  h-9"
+                                    className="p-2 mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm h-9"
                                 />
                             </div>
 
@@ -60,13 +60,13 @@ const Login = () => {
                                     type="password"
                                     id="Password"
                                     name="password"
-                                    className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm  h-9"
+                                    className="p-2 mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm h-9"
                                 />
                             </div>
 
                             <div className="col-span-6 sm:flex sm:items-center sm:gap-4">
                                 <button
-                                    className="inline-block shrink-0 rounded-md border border-blue bg-black px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-blackCP focus:outline-none focus:ring active:text-blue"
+                                    className="inline-block shrink-0 rounded-md border border-blue bg-blackCP px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-blackCP focus:outline-none focus:ring active:text-blue"
                                 >
                                     Log in
                                 </button>

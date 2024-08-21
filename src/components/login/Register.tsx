@@ -50,7 +50,7 @@ const Register = () => {
                                     type="text"
                                     id="LastName"
                                     name="last_name"
-                                    className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm  h-9"
+                                    className="p-2 mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm  h-9"
                                 />
                             </div>
 
@@ -61,7 +61,7 @@ const Register = () => {
                                     type="email"
                                     id="Email"
                                     name="email"
-                                    className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm  h-9"
+                                    className="p-2 mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm  h-9"
                                 />
                             </div>
 
@@ -72,7 +72,7 @@ const Register = () => {
                                     type="password"
                                     id="Password"
                                     name="password"
-                                    className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm  h-9"
+                                    className="p-2 mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm  h-9"
                                 />
                             </div>
 
@@ -85,7 +85,7 @@ const Register = () => {
                                     type="password"
                                     id="PasswordConfirmation"
                                     name="password_confirmation"
-                                    className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm  h-9"
+                                    className="p-2 mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm  h-9"
                                 />
                             </div>
 

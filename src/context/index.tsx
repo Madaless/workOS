@@ -1,9 +1,8 @@
 "use client"
 import Cards from "@/components/add-offer/Cards";
+import OfferForm from "@/components/add-offer/OfferForm";
 import { StepProps } from "@/components/add-offer/Step";
 import { createContext, useState, useContext } from "react";
-
-
 
 export type ContextType = {
     steps: StepProps[];
@@ -21,7 +20,7 @@ const stepList: StepProps[] = [
         back: false,
     },
     {
-        children: <div>asd</div>,
+        children: <OfferForm />,
         next: true,
         back: true,
     }
@@ -30,6 +29,7 @@ const stepList: StepProps[] = [
 export const AppWrapper = ({ children }: { children: React.ReactNode }) => {
     let [steps, setSteps] = useState(stepList);
     let [currentStepIndex, setCurrentStepIndex] = useState(0);
+    const [typeOfOffer, setTypeOfOffer] = useState()
 
     const incrementCurrentStepIndex = () => {
         setCurrentStepIndex(id => id + 1);
