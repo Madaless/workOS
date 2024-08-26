@@ -1,13 +1,13 @@
 import React from 'react'
 import { BuildingOffice2Icon, MapPinIcon, CurrencyDollarIcon, BriefcaseIcon, GlobeAltIcon, DevicePhoneMobileIcon } from '@heroicons/react/24/outline';
 import { formatDistanceToNow, subDays, isAfter, parse } from 'date-fns';
+import { OfferType } from '../add-offer/Cards';
 
-export enum PromotionType {
-    Normal = "Normal",
-    Highlighted = "Highlighted",
-    Premium = "Premium"
+export enum OfferTypeE {
+    Normal = "normal",
+    Highlighted = "premium",
+    Premium = "gold"
 }
-
 export type JobOffer = {
     image: string;
     title: string;
@@ -19,10 +19,10 @@ export type JobOffer = {
     employmentTypeTag: string; // Full-Time or Part-Time
     locationTypeTag: string;   // Stationary or Remote
     remoteRecruitmentTag: string; // Remote Recruitment (Yes or No)
-    promotionType: PromotionType;
+    offerType: OfferType;
 }
 
-const Offer: React.FC<JobOffer> = ({ image, remoteRecruitmentTag, title, company, location, employmentType, salary, date, employmentTypeTag, locationTypeTag, promotionType }) => {
+const Offer: React.FC<JobOffer> = ({ image, remoteRecruitmentTag, title, company, location, employmentType, salary, date, employmentTypeTag, locationTypeTag, offerType }) => {
     const formatDate = (date: string) => {
         const jobDate = parse(date, 'dd.MM.yyyy', new Date());
         const now = new Date();
@@ -41,25 +41,25 @@ const Offer: React.FC<JobOffer> = ({ image, remoteRecruitmentTag, title, company
         }
     };
 
-    const bgColor = promotionType === PromotionType.Premium ? 'bg-orange-100' :
-        promotionType === PromotionType.Highlighted ? 'bg-blue-100' :
+    const bgColor = offerType === OfferTypeE.Premium ? 'bg-orange-100' :
+        offerType === OfferTypeE.Highlighted ? 'bg-blue-100' :
             'bg-white';
-    const borderColor = promotionType === PromotionType.Premium ? 'border-orange-200' :
-        promotionType === PromotionType.Highlighted ? 'border-blue-100' :
+    const borderColor = offerType === OfferTypeE.Premium ? 'border-orange-200' :
+        offerType === OfferTypeE.Highlighted ? 'border-blue-100' :
             'border-gray-200';
 
-    const textColor = promotionType === PromotionType.Premium ? 'text-gray-800' :
-        promotionType === PromotionType.Highlighted ? 'text-gray-800' :
+    const textColor = offerType === OfferTypeE.Premium ? 'text-gray-800' :
+        offerType === OfferTypeE.Highlighted ? 'text-gray-800' :
             'text-gray-800';
 
-    const tagBorderColor = promotionType === PromotionType.Premium ? 'border-transparent' :
-        promotionType === PromotionType.Highlighted ? 'text-gray-900' :
+    const tagBorderColor = offerType === OfferTypeE.Premium ? 'border-transparent' :
+        offerType === OfferTypeE.Highlighted ? 'text-gray-900' :
             'text-gray-900';
 
 
     //const textColor = promotionType === PromotionType.Premium || promotionType === PromotionType.Highlighted ? 'text-white' : 'text-gray-900';
     // const borderColor = promotionType === PromotionType.Premium || promotionType === PromotionType.Highlighted ? 'border-orangeCP' : 'border-transparent';
-    const tagBgColor = promotionType === PromotionType.Premium || promotionType === PromotionType.Highlighted ? 'bg-white' : 'bg-transparent';
+    const tagBgColor = offerType === OfferTypeE.Premium || offerType === OfferTypeE.Highlighted ? 'bg-white' : 'bg-transparent';
 
     return (
         <div className={`flex items-center justify-between p-6 rounded-lg shadow-sm max-w-[1140px] mx-auto hover:shadow-md mb-5 border cursor-pointer ${bgColor} ${borderColor}`}>

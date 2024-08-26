@@ -1,13 +1,20 @@
-import React from 'react'
-import { Offer } from './Cards';
+"use client"
+import { Offer, useAppContext } from '@/context';
+import React, { useState } from 'react'
 
-const OfferCard: React.FC<Offer> = ({ benefits, cost, description, id, offerType, title }) => {
+const OfferCard: React.FC<Offer> = ({ benefits, cost, description, id, offerType, title, selected }) => {
     const NORMAL_STYLE = "mt-4 w-full block rounded border border-blackCP bg-transparent px-12 py-3 text-center text-sm font-medium text-blackCP hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500 sm:mt-6";
     const PREMIUM_STYLE = "mt-4 w-full block rounded border border-bluebCP bg-bluebCP px-12 py-3 text-center text-sm font-medium text-white hover:bg-transparent hover:text-bluebCP focus:outline-none focus:ring active:text-indigo-500 sm:mt-6";
     const GOLD_STYLE = "mt-4 w-full block rounded border border-goldCP bg-goldCP px-12 py-3 text-center text-sm font-medium text-white hover:bg-transparent hover:text-goldCP focus:outline-none focus:ring active:text-indigo-500 sm:mt-6";
+    const SELECTED_STYLE = "ring-2 ring-offset-2 ring-blue-500";
 
+    const { selectCard } = useAppContext();
+
+    const onCardSelect = (id: number) => {
+        selectCard(id);
+    }
     return (
-        <div className="divide-y divide-gray-200 rounded-2xl border border-gray-200 shadow-sm">
+        <div className={`divide-y divide-gray-200 rounded-2xl border border-gray-200 shadow-sm ${selected && SELECTED_STYLE}`}>
             <div className="p-6 sm:px-8">
                 <h2 className="text-lg font-medium text-gray-900">
                     {title}
@@ -23,7 +30,7 @@ const OfferCard: React.FC<Offer> = ({ benefits, cost, description, id, offerType
                 </p>
 
                 <button
-                    className={offerType === "normal" ? NORMAL_STYLE : offerType === "premium" ? PREMIUM_STYLE : GOLD_STYLE} onClick={() => console.log(1)}
+                    className={offerType === "normal" ? NORMAL_STYLE : offerType === "premium" ? PREMIUM_STYLE : GOLD_STYLE} onClick={() => onCardSelect(id)}
                 >
                     Wybieram
                 </button>

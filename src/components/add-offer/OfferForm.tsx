@@ -10,16 +10,16 @@ const OfferForm = () => {
     }
     return (
         <form action="#">
-            <h3 className="mb-4 font-semibold text-gray-900 dark:text-white">Szczegóły oferty</h3>
+            <h3 className="mb-4 p-2 font-semibold text-gray-900 dark:text-white">Szczegóły oferty</h3>
 
             <div className="grid gap-6 mb-6 md:grid-cols-2 w-full p-2">
 
                 <div>
-                    <label htmlFor="Email" className="block text-sm font-medium text-gray-700"> Tytuł </label>
+                    <label htmlFor="tytuł" className="block text-sm font-medium text-gray-700"> Tytuł </label>
 
                     <input
-                        id="Email"
-                        name="email"
+                        id="tytuł"
+                        name="tytuł"
                         className="p-2 mt-1 w-full rounded-md bg-gray-50 border-gray-300 border text-sm text-gray-700 shadow-sm h-9"
                     />
                 </div>

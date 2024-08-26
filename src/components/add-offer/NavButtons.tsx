@@ -5,10 +5,11 @@ import React from 'react'
 type NavProps = {
     back: boolean,
     next: boolean,
-    finish?: boolean
+    finish?: boolean,
+    isNextDisabled: boolean
 }
 
-const NavButtons: React.FC<NavProps> = ({ back, next, finish }) => {
+const NavButtons: React.FC<NavProps> = ({ back, next, finish, isNextDisabled }) => {
 
     const { incrementCurrentStepIndex, decrementCurrentStepIndex } = useAppContext();
 
@@ -23,7 +24,7 @@ const NavButtons: React.FC<NavProps> = ({ back, next, finish }) => {
     return (
         <div className='flex flex-row mt-16'>
             {back && <button onClick={backOnCLick} className='mx-2 my-4 py-3 px-3 bg-bluemCP text-white rounded-full font-bold text-base w-full'>Back</button>}
-            {next && <button onClick={nextOnClick} className='mx-2 my-4 py-3 px-3 bg-bluemCP text-white rounded-full font-bold text-base w-full'>Next</button>}
+            {next && <button disabled={isNextDisabled} onClick={nextOnClick} className='mx-2 my-4 py-3 px-3 bg-bluemCP text-white rounded-full font-bold text-base w-full disabled:bg-gray-400 disabled:cursor-not-allowed'>Next</button>}
 
         </div>
     )

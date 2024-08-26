@@ -1,18 +1,29 @@
-import React from 'react'
+import React from 'react';
 
-const ProgressBar = () => {
+type ProgressProps = {
+    stepProgress: number;
+};
+
+const ProgressBar: React.FC<ProgressProps> = ({ stepProgress }) => {
+    // Determine the width of the progress bar based on the stepProgress prop
+    const progressWidth = `${(stepProgress / 3) * 100}%`;
+
+    // Determine the classes for each step based on the current progress
+    const stepClasses = (step: number) =>
+        stepProgress >= step ? 'text-bluebCP' : 'text-gray-500';
+
     return (
         <div id='steps' className='mt-2 mb-8 mx-6'>
-            <h2 className="sr-only ">Steps</h2>
+            <h2 className="sr-only">Steps</h2>
             <div>
                 <div className="overflow-hidden rounded-full bg-gray-200">
-                    <div className="h-2 w-1/3 rounded-full bg-bluebCP"></div>
+                    <div className="h-2 rounded-full bg-bluebCP transition-all duration-500"
+                        style={{ width: progressWidth }} ></div>
                 </div>
 
-                <ol className="mt-4 grid grid-cols-3 text-sm font-medium text-gray-500">
-                    <li className="flex items-center justify-start text-bluebCP sm:gap-1.5">
-                        <span className="hidden sm:inline"> Details </span>
-
+                <ol className="mt-4 grid grid-cols-3 text-sm font-medium">
+                    <li className={`flex items-center justify-start sm:gap-1.5 ${stepClasses(1)}`}>
+                        <span className="hidden sm:inline">Typ oferty</span>
                         <svg
                             className="size-6 sm:size-5"
                             xmlns="http://www.w3.org/2000/svg"
@@ -29,9 +40,8 @@ const ProgressBar = () => {
                         </svg>
                     </li>
 
-                    <li className="flex items-center justify-center text-bluebCP sm:gap-1.5">
-                        <span className="hidden sm:inline"> Address </span>
-
+                    <li className={`flex items-center justify-center sm:gap-1.5 ${stepClasses(2)}`}>
+                        <span className="hidden sm:inline">Szczegóły</span>
                         <svg
                             className="size-6 sm:size-5"
                             xmlns="http://www.w3.org/2000/svg"
@@ -53,9 +63,8 @@ const ProgressBar = () => {
                         </svg>
                     </li>
 
-                    <li className="flex items-center justify-end sm:gap-1.5">
-                        <span className="hidden sm:inline"> Payment </span>
-
+                    <li className={`flex items-center justify-end sm:gap-1.5 ${stepClasses(3)}`}>
+                        <span className="hidden sm:inline">Płatność</span>
                         <svg
                             className="size-6 sm:size-5"
                             xmlns="http://www.w3.org/2000/svg"
@@ -74,7 +83,7 @@ const ProgressBar = () => {
                 </ol>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default ProgressBar
+export default ProgressBar;
