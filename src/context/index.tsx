@@ -82,7 +82,7 @@ const offersList: Offer[] = [{
     title: "Premium",
     description: 'Ważne przez 30 dni, wyróżnione zieloną ramką.',
     cost: 60.00,
-    benefits: new Map([["Pomoc i wsparcie email", true], ["2x Wiecej wyswietleń", true]]),
+    benefits: new Map([...benefits, ["Logo firmy" as BenefitType, true], ["Funkcja email" as BenefitType, true], ["Pomoc i wsparcie email", true], ["2x Wiecej wyswietleń", true]]),
     selected: false
 },
 {
@@ -91,7 +91,7 @@ const offersList: Offer[] = [{
     title: "Złota",
     description: 'Ważne przez 30 dni, wyróżnione zieloną ramką.',
     cost: 300.00,
-    benefits: new Map([["Ogłoszenie na samej górze", true], ["Wsparcie telefoniczne", true],]),
+    benefits: new Map([...benefits, ["Logo firmy" as BenefitType, true], ["Funkcja email" as BenefitType, true], ["Pomoc i wsparcie email", true], ["2x Wiecej wyswietleń", true], ["Ogłoszenie na samej górze", true], ["Wsparcie telefoniczne", true],]),
     selected: false
 },
 ]
@@ -113,6 +113,11 @@ export const AppWrapper = ({ children }: { children: React.ReactNode }) => {
 
     const selectCard = (id: number) => {
         setOffers(offers.map(offer => offer.id === id ? { ...offer, selected: true } : { ...offer, selected: false }))
+        creatorJobOffer.offerType = offers.find(i => i.offerType);
+        const step = stepList[0];
+        step.isFinished = true;
+        step.isNextDisabled = false;
+        setSteps([...steps, step])
     }
 
 

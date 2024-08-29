@@ -1,28 +1,40 @@
 import React from 'react'
 import { BuildingOffice2Icon, MapPinIcon, CurrencyDollarIcon, BriefcaseIcon, GlobeAltIcon, DevicePhoneMobileIcon } from '@heroicons/react/24/outline';
 import { formatDistanceToNow, subDays, isAfter, parse } from 'date-fns';
-import { OfferType } from '../add-offer/Cards';
+import { OfferType } from '@/context';
 
 export enum OfferTypeE {
     Normal = "normal",
     Highlighted = "premium",
     Premium = "gold"
 }
+export enum EmploymentType {
+    FullTime = "Full-Time",
+    PartTime = "Part-Time",
+}
+
+export enum WorkModel {
+    Remote = "Remote",
+    Hybrid = "Hybrid",
+    Stationary = "Stationary",
+}
+
 export type JobOffer = {
     image: string;
     title: string;
     company: string;
     location: string;
-    employmentType: string;
+    category: string;
+    employmentType: EmploymentType;
+    offerType: OfferType;
+    workModel: WorkModel;
     salary: string;
     date: string;
-    employmentTypeTag: string; // Full-Time or Part-Time
-    locationTypeTag: string;   // Stationary or Remote
-    remoteRecruitmentTag: string; // Remote Recruitment (Yes or No)
-    offerType: OfferType;
+    remoteRecruitment: boolean;
+    remoteWork: boolean;
 }
 
-const Offer: React.FC<JobOffer> = ({ image, remoteRecruitmentTag, title, company, location, employmentType, salary, date, employmentTypeTag, locationTypeTag, offerType }) => {
+const Offer: React.FC<JobOffer> = ({ image, title, company, location, employmentType, salary, date, offerType, remoteRecruitment, workModel }) => {
     const formatDate = (date: string) => {
         const jobDate = parse(date, 'dd.MM.yyyy', new Date());
         const now = new Date();
@@ -90,13 +102,13 @@ const Offer: React.FC<JobOffer> = ({ image, remoteRecruitmentTag, title, company
                         </span>
                         <span className={`flex items-center border  text-sm font-medium px-3 py-1 rounded-lg ${tagBorderColor} ${tagBgColor}`}>
                             <BriefcaseIcon className="h-5 w-5 mr-2" />
-                            {employmentTypeTag}
+                            {employmentType}
                         </span>
                         <span className={`flex items-center border  text-sm font-medium px-3 py-1 rounded-lg ${tagBorderColor} ${tagBgColor}`}>
                             <GlobeAltIcon className="h-5 w-5 mr-2" />
-                            {locationTypeTag}
+                            {workModel}
                         </span>
-                        {remoteRecruitmentTag === 'Yes' && (
+                        {remoteRecruitment && (
                             <span className={`flex items-center border text-sm font-medium px-3 py-1 rounded-lg ${tagBorderColor} ${tagBgColor}`}>
                                 <DevicePhoneMobileIcon className="h-5 w-5 mr-2" />
                                 Remote Recruitment

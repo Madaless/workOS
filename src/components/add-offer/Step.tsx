@@ -10,7 +10,7 @@ export type StepProps = {
     isNextDisabled: boolean;
     finish?: boolean
     stepNumber: number
-    isFinished: false
+    isFinished: boolean
 }
 
 

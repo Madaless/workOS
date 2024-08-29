@@ -1,6 +1,7 @@
 "use state"
 import React, { useState } from 'react'
 import Editor from 'react-simple-wysiwyg';
+import { useFormik } from 'formik';
 
 const OfferForm = () => {
     const [html, setHtml] = useState('');
@@ -8,6 +9,26 @@ const OfferForm = () => {
     function onChange(e: any) {
         setHtml(e.target.value);
     }
+
+    const formik = useFormik({
+        initialValues: {
+            image: '',
+            title: '',
+            company: '',
+            category: '',
+            employmentType: '',
+            workModel: '',
+            salary: '',
+            date: '',
+            remoteRecruitment: false,
+            remoteWork: false,
+            location: '',
+        },
+        onSubmit: values => {
+            alert(JSON.stringify(values, null, 2));
+        },
+    });
+
     return (
         <form action="#">
             <h3 className="mb-4 p-2 font-semibold text-gray-900 dark:text-white">Szczegóły oferty</h3>
@@ -18,19 +39,23 @@ const OfferForm = () => {
                     <label htmlFor="tytuł" className="block text-sm font-medium text-gray-700"> Tytuł </label>
 
                     <input
-                        id="tytuł"
-                        name="tytuł"
+                        id="title"
+                        name="title"
                         className="p-2 mt-1 w-full rounded-md bg-gray-50 border-gray-300 border text-sm text-gray-700 shadow-sm h-9"
+                        onChange={formik.handleChange}
+                        value={formik.values.title}
                     />
                 </div>
 
                 <div>
-                    <label htmlFor="Password" className="block text-sm font-medium text-gray-700"> Kategoria </label>
+                    <label htmlFor="Kategoria" className="block text-sm font-medium text-gray-700"> Kategoria </label>
 
                     <select
-                        id="Password"
-                        name="password"
+                        id="category"
+                        name="category"
                         className="p-2 mt-1 w-full rounded-md  bg-gray-50 border-gray-300 border text-sm text-gray-700 shadow-sm h-9"
+                        onChange={formik.handleChange}
+                        value={formik.values.category}
                     />
                 </div>
 
@@ -38,9 +63,11 @@ const OfferForm = () => {
                     <label htmlFor="Nazwa firmy" className="block text-sm font-medium text-gray-700"> Nazwa firmy </label>
 
                     <input
-                        id="companyName"
-                        name="Nazwa firmy"
+                        id="company"
+                        name="company"
                         className="p-2 mt-1 w-full rounded-md  bg-gray-50 border-gray-300 border text-sm text-gray-700 shadow-sm h-9"
+                        onChange={formik.handleChange}
+                        value={formik.values.company}
                     />
                 </div>
 
@@ -48,9 +75,11 @@ const OfferForm = () => {
                     <label htmlFor="Rodzaj zatrudnienia" className="block text-sm font-medium text-gray-700"> Rodzaj zatrudnienia </label>
 
                     <select
-                        id="Rodzaj zatrudnienia"
-                        name="Rodzaj zatrudnienia"
+                        id="employmentType"
+                        name="employmentType"
                         className="p-2 mt-1 w-full rounded-md  bg-gray-50 border-gray-300 border text-sm text-gray-700 shadow-sm h-9"
+                        onChange={formik.handleChange}
+                        value={formik.values.employmentType}
                     />
                 </div>
 
@@ -58,16 +87,17 @@ const OfferForm = () => {
                     <label htmlFor="Lokalizacja" className="block text-sm font-medium text-gray-700"> Lokalizacja</label>
 
                     <select
-                        id="Rodzaj zatrudnienia"
-                        name="Rodzaj zatrudnienia"
+                        id="location"
+                        name="location"
                         className="p-2 mt-1 w-full rounded-md  bg-gray-50 border-gray-300 border text-sm text-gray-700 shadow-sm h-9"
+                        onChange={formik.handleChange}
+                        value={formik.values.location}
                     />
                 </div>
-
-
             </div>
 
             <h3 className="mb-4 font-semibold text-gray-900 dark:text-white">Typ pracy</h3>
+
             <ul className="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
                 <li className="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
                     <div className="flex items-center ps-3">
@@ -89,6 +119,7 @@ const OfferForm = () => {
                 </li>
 
             </ul>
+
             <div className='my-6'>
                 <h3 className="mb-4 font-semibold text-gray-900 dark:text-white">Rekrutacja</h3>
 
@@ -100,8 +131,15 @@ const OfferForm = () => {
             </div>
             <h3 className="mb-4 mt-6 font-semibold text-gray-900 dark:text-white">Treść ogłoszenia</h3>
 
-            <Editor value={html} onChange={onChange} />
 
+            <Editor containerProps={{
+                style: {
+                    height: "500px",
+                    overflow: "auto"
+                }
+            }
+            }
+                value={html} onChange={onChange} />
 
         </form>
     )
