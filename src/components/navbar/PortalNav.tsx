@@ -6,7 +6,7 @@ const PortalNav = () => {
             <div className='absolute flex flex-col items-center justify-center text-center top-0  mt-2 '>
                 <Link href={"/"} passHref legacyBehavior >
                     <div className='bg-white bg-opacity-95 rounded-full cursor-pointer'>
-                        <img src='untitled.svg' className=" w-64 py-2 px-4 object-cover"></img>
+                        <img src='/untitled.svg' className=" w-64 py-2 px-4 object-cover"></img>
                     </div>
                 </Link>
             </div>

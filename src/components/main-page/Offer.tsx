@@ -34,6 +34,10 @@ export type JobOffer = {
     remoteWork: boolean;
 }
 
+export type JobOfferDetails = JobOffer & {
+    description: string;
+}
+
 const Offer: React.FC<JobOffer> = ({ image, title, company, location, employmentType, salary, date, offerType, remoteRecruitment, workModel }) => {
     const formatDate = (date: string) => {
         const jobDate = parse(date, 'dd.MM.yyyy', new Date());
