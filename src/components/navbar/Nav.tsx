@@ -13,7 +13,7 @@ const Nav = () => {
             </div>
             <div className='absolute right-4 top-0 block'>
                 <Link href={"/add-offer"} passHref legacyBehavior>
-                    <button className=' mx-2 my-4 py-2 px-4 bg-orangeCP text-white rounded-lg font-bold text-base'>
+                    <button className=' mx-2 my-2 py-2 px-4 bg-orangeCP text-white rounded-lg font-bold text-base'>
                         <div className='flex items-center'>
                             <span className="mr-2">Add offer</span>
                             <span><PlusIcon className='h-5 w-5 fill-current' /></span>
@@ -22,11 +22,11 @@ const Nav = () => {
                 </Link>
 
                 <Link href={"/login"} passHref legacyBehavior>
-                    <button className='mx-2 my-4 py-2 px-4 bg-blackCP text-white rounded-lg font-bold text-base'>Log in</button>
+                    <button className='mx-2 my-2 py-2 px-4 bg-blackCP text-white rounded-lg font-bold text-base'>Log in</button>
                 </Link>
                 <Link href={"/login"} passHref legacyBehavior>
 
-                    <button className='mx-2 my-4 py-2 px-4 bg-white text-black rounded-lg font-bold text-base'>For employee</button>
+                    <button className='mx-2 my-2 py-2 px-4 bg-white text-black rounded-lg font-bold text-base'>For employee</button>
                 </Link>
 
             </div>

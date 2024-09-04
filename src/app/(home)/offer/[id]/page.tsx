@@ -7,7 +7,7 @@ const page = () => {
     const offers: JobOfferDetails[] = offersJSON as JobOfferDetails[];
 
     return (
-        <main className="min-h-screen  pt-10 max-w-[1180px]">
+        <main className="min-h-screen mx-auto pt-[75px] max-w-[1180px]">
             <section className=""><OffferDetails offer={offers[1]} /></section>
         </main>
     )
