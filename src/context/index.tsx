@@ -54,8 +54,9 @@ const stepList: StepProps[] = [
         next: true,
         back: true,
         stepNumber: 2,
-        isNextDisabled: true,
+        isNextDisabled: false,
         isFinished: false,
+        nextCallback: () => { return true }
     },
     {
         children: <div />,

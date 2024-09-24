@@ -6,14 +6,20 @@ type NavProps = {
     back: boolean,
     next: boolean,
     finish?: boolean,
-    isNextDisabled: boolean
+    isNextDisabled: boolean,
+    nextCallback?: () => true
 }
 
-const NavButtons: React.FC<NavProps> = ({ back, next, finish, isNextDisabled }) => {
+const NavButtons: React.FC<NavProps> = ({ back, next, finish, isNextDisabled, nextCallback }) => {
 
     const { incrementCurrentStepIndex, decrementCurrentStepIndex } = useAppContext();
 
     const nextOnClick = () => {
+        console.log("sad")
+        if (nextCallback)
+            if (!nextCallback())
+                return;
+
         incrementCurrentStepIndex();
     }
 

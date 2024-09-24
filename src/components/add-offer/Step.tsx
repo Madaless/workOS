@@ -11,15 +11,16 @@ export type StepProps = {
     finish?: boolean
     stepNumber: number
     isFinished: boolean
+    nextCallback?: () => boolean;
 }
 
 
-const Step = ({ children, back, next, finish, stepNumber, isNextDisabled }: StepProps) => {
+const Step = ({ children, back, next, finish, stepNumber, isNextDisabled, nextCallback }: StepProps) => {
     return (
         <div className='flex flex-col justify-between min-w-[500px] min-h-[200px]'>
             <ProgressBar stepProgress={stepNumber} />
             {children}
-            <NavButtons back={back} next={next} finish={finish} isNextDisabled={isNextDisabled} />
+            <NavButtons back={back} next={next} finish={finish} isNextDisabled={isNextDisabled} nextCallback={nextCallback} />
         </div>
     )
 }
